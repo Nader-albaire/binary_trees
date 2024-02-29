@@ -1,0 +1,31 @@
+#include <stddef.h> // Add include for NULL definition
+
+#include "binary_trees.h"
+
+/**
+ * binary_tree_preorder_check_left - a function
+ * that goes through a binary tree using
+ * pre-order traversal
+ * checking if any value is bigger than the value given.
+ * @tree: is a pointer to the root node of the tree to traverse
+ * @value: the value to check
+ *
+ * Return: Nothing
+ */
+int binary_tree_preorder_check_left(const binary_tree_t *tree, int value)
+{
+	int leftCheck;
+	int rightCheck;
+
+	if (tree == NULL)
+		return (1);
+
+	if (tree->left != NULL && tree->left->n > value)
+		return (0);
+	if (tree->right != NULL && tree->right->n > value)
+		return (0);
+	leftCheck = binary_tree_preorder_check_left(tree->left, value);
+	rightCheck = binary_tree_preorder_check_left(tree->right, value);
+	return (leftCheck && rightCheck);
+}
+

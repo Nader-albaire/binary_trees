@@ -70,9 +70,9 @@ int isBalancedAvl(const binary_tree_t *tree)
  */
 int binary_tree_preorder_check_left(const binary_tree_t *tree, int value)
 {
-	int leftCheck;
 	int rightCheck;
-	int balanceCheck;
+	int leftCheck;
+	
 
 	if (tree == NULL)
 		return (1);
@@ -106,22 +106,19 @@ int binary_tree_preorder_check_right(const binary_tree_t *tree, int value)
 
 	if (tree->left != NULL && tree->left->n < value)
 		return (0);
-
 	if (tree->right != NULL && tree->right->n < value)
 		return (0);
-
 	leftCheck = binary_tree_preorder_check_right(tree->left, value);
 	rightCheck = binary_tree_preorder_check_right(tree->right, value);
-
 	return (leftCheck && rightCheck);
 }
 
 /**
- * binary_tree_height_adjusted - a function that measures.
+ * binary_tree_height_adjusted - a function that measures
  * the height of a binary tree + 1
  * @tree: is a pointer to the root node of the tree to measure the height.
  *
- * Return: a binary tree height, If tree is NULL, your function must return 0.
+ * Return: a binary tree height, If tree is NULL, your function must return 0
  */
 size_t binary_tree_height_adjusted(const binary_tree_t *tree)
 {
@@ -139,6 +136,6 @@ size_t binary_tree_height_adjusted(const binary_tree_t *tree)
 
 	if (left > right)
 		return (left);
-        
 	return (right);
 }
+
